@@ -28,7 +28,7 @@ fun HomeScreen(
             color = MaterialTheme.colorScheme.primary,
             modifier = Modifier.clickable{
 //                navController.popBackStack()
-                navController.navigate(route = Screen.detail.passId(5))
+                navController.navigate(route = Screen.detail.passNameAndId(name = "Gidraph",id=59))
             }
         )
     }
