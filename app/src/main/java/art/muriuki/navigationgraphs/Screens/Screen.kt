@@ -4,5 +4,9 @@ const val DETAIL_ARGUMENT_KEY="id"
 sealed class Screen(
     val route: String) {
     object home : Screen("home_screen")
-    object detail : Screen("detail_screen/{$DETAIL_ARGUMENT_KEY}")
+    object detail : Screen("detail_screen/{$DETAIL_ARGUMENT_KEY}") {
+        fun passId(id : Int): String{
+            return "detail_screen/$id"
+        }
+    }
 }

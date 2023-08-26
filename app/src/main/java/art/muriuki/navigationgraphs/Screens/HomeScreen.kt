@@ -28,7 +28,7 @@ fun HomeScreen(
             color = MaterialTheme.colorScheme.primary,
             modifier = Modifier.clickable{
 //                navController.popBackStack()
-                navController.navigate(route = "detail_screen/"+1)
+                navController.navigate(route = Screen.detail.passId(5))
             }
         )
     }
