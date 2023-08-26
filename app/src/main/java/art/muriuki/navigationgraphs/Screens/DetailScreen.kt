@@ -1,5 +1,6 @@
 package art.muriuki.navigationgraphs.Screens
 
+import android.util.Log
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -18,6 +19,14 @@ import androidx.navigation.compose.rememberNavController
 fun DetailScreen(
     navController: NavController
 ) {
+
+    val param1 =
+        navController.currentBackStackEntry?.arguments?.getInt(DETAIL_ARGUMENT_KEY).toString()
+
+    val param2 =
+        navController.currentBackStackEntry?.arguments?.getString(DETAIL_ARGUMENT_KEY2).toString()
+    Log.d("Args detail",param1)
+    Log.d("Args detail",param2)
     Box(
         modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center
     ) {
@@ -43,3 +52,5 @@ fun DetailScreen(
 fun previewDetailScreen() {
     DetailScreen(rememberNavController())
 }
+
+
