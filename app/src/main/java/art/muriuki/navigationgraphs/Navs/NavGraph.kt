@@ -29,11 +29,15 @@ fun setUpNavGraph(
         }
         composable(
             route = Screen.detail.route,
-            arguments = listOf(navArgument(DETAIL_ARGUMENT_KEY) { type = NavType.IntType },
-                navArgument(DETAIL_ARGUMENT_KEY2) { type = NavType.StringType  })
+            arguments = listOf(navArgument(DETAIL_ARGUMENT_KEY) {
+                type = NavType.IntType
+                defaultValue = 0
+            }
+//                , navArgument(DETAIL_ARGUMENT_KEY2) { type = NavType.StringType  }
+            )
         ) {
             Log.d("Args", it.arguments?.getInt(DETAIL_ARGUMENT_KEY).toString())
-            Log.i("Args", it.arguments?.getString(DETAIL_ARGUMENT_KEY2 ).toString())
+//            Log.i("Args", it.arguments?.getString(DETAIL_ARGUMENT_KEY2 ).toString())
             DetailScreen(navController)
         }
     }
