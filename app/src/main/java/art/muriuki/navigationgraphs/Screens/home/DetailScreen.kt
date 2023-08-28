@@ -1,4 +1,4 @@
-package art.muriuki.navigationgraphs.Screens
+package art.muriuki.navigationgraphs.Screens.home
 
 import android.util.Log
 import androidx.compose.foundation.clickable
@@ -14,6 +14,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import art.muriuki.navigationgraphs.Screens.DETAIL_ARGUMENT_KEY
+import art.muriuki.navigationgraphs.Screens.DETAIL_ARGUMENT_KEY2
+import art.muriuki.navigationgraphs.Screens.Screen
 
 @Composable
 fun DetailScreen(
