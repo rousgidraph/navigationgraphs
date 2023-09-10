@@ -8,6 +8,12 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import art.muriuki.navigationgraphs.Screens.BottomNavScreen
 import art.muriuki.navigationgraphs.Screens.ScreenContent
+import art.muriuki.navigationgraphs.Screens.dashboard.DashboardScreen
+import art.muriuki.navigationgraphs.Screens.home.OverviewScreen
+import art.muriuki.navigationgraphs.Screens.home.informationScreen
+import art.muriuki.navigationgraphs.Screens.more.MoreScreen
+import art.muriuki.navigationgraphs.Screens.search.SearchScreen
+import art.muriuki.navigationgraphs.Screens.trip.TripScreen
 
 @Composable
 fun HomeNavGraph(navController: NavHostController) {
@@ -17,7 +23,7 @@ fun HomeNavGraph(navController: NavHostController) {
         route = Graph.HOME
     ) {
         composable(route = BottomNavScreen.home.route) {
-            ScreenContent(
+            DashboardScreen(
                 name = BottomNavScreen.home.route,
                 onClick = {
                     navController.navigate(Graph.DETAILS)
@@ -25,15 +31,15 @@ fun HomeNavGraph(navController: NavHostController) {
         }
 
         composable(route = BottomNavScreen.search.route) {
-            ScreenContent(name = BottomNavScreen.search.route, onClick = {})
+            SearchScreen(name = BottomNavScreen.search.route, onClick = {})
         }
 
         composable(route = BottomNavScreen.trip.route) {
-            ScreenContent(name = BottomNavScreen.trip.route, onClick = {})
+            TripScreen(name = BottomNavScreen.trip.route, onClick = {})
         }
 
         composable(route = BottomNavScreen.more.route) {
-            ScreenContent(name = BottomNavScreen.more.route, onClick = {})
+            MoreScreen(name = BottomNavScreen.more.route, onClick = {})
         }
         detailsNavGraph(navController)
     }
@@ -47,13 +53,13 @@ fun NavGraphBuilder.detailsNavGraph(navController: NavHostController) {
 
     ) {
         composable(route = DetailsScreen.Information.route){
-            ScreenContent(name = DetailsScreen.Information.route) {
+            informationScreen(name = DetailsScreen.Information.route) {
                 navController.navigate(DetailsScreen.Overview.route)
             }
         }
 
         composable(route= DetailsScreen.Overview.route){
-            ScreenContent(name = DetailsScreen.Overview.route) {
+            OverviewScreen(name = DetailsScreen.Overview.route) {
                 navController.popBackStack(
                     route = DetailsScreen.Information.route,
                     inclusive = false
