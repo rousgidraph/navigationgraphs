@@ -77,14 +77,15 @@ fun BottomBar(navController: NavHostController) {
                         .fillMaxSize()
                         .noRippleClickable {
                             selectedIndex = item.ordinal
-                            if(item.ordinal != screen.ordinal) {
+//                            if (item.ordinal != screen.ordinal) {
                                 screen = item
                                 navController.navigate(
-                                    screen.route) {
+                                    screen.route
+                                ) {
                                     popUpTo(navController.graph.findStartDestination().id)
                                     launchSingleTop = true
                                 }
-                            }
+//                            }
                         },
                     contentAlignment = Alignment.Center
                 ) {
@@ -102,10 +103,9 @@ fun BottomBar(navController: NavHostController) {
 }
 
 
-
 fun Modifier.noRippleClickable(onClick: () -> Unit): Modifier = composed {
     clickable(
         indication = null,
         interactionSource = remember { MutableInteractionSource() }
-    ) {onClick() }
+    ) { onClick() }
 }

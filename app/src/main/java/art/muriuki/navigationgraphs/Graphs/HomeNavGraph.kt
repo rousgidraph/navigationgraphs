@@ -35,12 +35,17 @@ fun HomeNavGraph(navController: NavHostController) {
         composable(route = BottomNavScreen.more.route) {
             ScreenContent(name = BottomNavScreen.more.route, onClick = {})
         }
+        detailsNavGraph(navController)
     }
 }
 
 
 fun NavGraphBuilder.detailsNavGraph(navController: NavHostController) {
-    navigation(route = Graph.DETAILS, startDestination = DetailsScreen.Information.route) {
+    navigation(
+        route = Graph.DETAILS,
+        startDestination = DetailsScreen.Information.route,
+
+    ) {
         composable(route = DetailsScreen.Information.route){
             ScreenContent(name = DetailsScreen.Information.route) {
                 navController.navigate(DetailsScreen.Overview.route)
