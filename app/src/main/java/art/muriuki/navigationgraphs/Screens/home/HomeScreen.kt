@@ -58,7 +58,7 @@ fun BottomBar(navController: NavHostController) {
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentDestination = navBackStackEntry?.destination
     var selectedIndex by remember { mutableStateOf(0) }
-    var screen: BottomNavScreen = BottomNavScreen.home
+    var screen: BottomNavScreen by remember { mutableStateOf(BottomNavScreen.home) }
     val bottomBarDestination = screens.any { it.route == currentDestination?.route }
 
     if (bottomBarDestination) {
@@ -77,15 +77,15 @@ fun BottomBar(navController: NavHostController) {
                         .fillMaxSize()
                         .noRippleClickable {
                             selectedIndex = item.ordinal
-//                            if (item.ordinal != screen.ordinal) {
+                            if (item.ordinal != screen.ordinal) {
                                 screen = item
                                 navController.navigate(
-                                    screen.route
+                                    item.route
                                 ) {
                                     popUpTo(navController.graph.findStartDestination().id)
                                     launchSingleTop = true
                                 }
-//                            }
+                            }
                         },
                     contentAlignment = Alignment.Center
                 ) {
